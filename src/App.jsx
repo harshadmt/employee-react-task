@@ -5,6 +5,8 @@ import Departments from "./pages/Department";
 import AddDepartment from "./pages/AddDepartment";
 import Navbar from "./pages/Components/Navbar";
 import ProtectedRoute from "./pages/Components/ProtectRouter";
+import DepartmentDetails from "./pages/DepartmentDetails";
+
 
 function App() {
   const isLoggedIn = !!localStorage.getItem("token");
@@ -25,6 +27,10 @@ function App() {
             </ProtectedRoute>
           }
         />
+<Route
+  path="/department/:deptId"
+  element={<DepartmentDetails />}
+/>
 
         <Route
           path="/add-department"

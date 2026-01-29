@@ -23,13 +23,10 @@ function Departments() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
-       <div className="flex items-center justify-between mb-6">
-  <h2 className="text-2xl font-semibold">Departments</h2>
-</div>
+        <div className="mb-6">
+          <h2 className="text-2xl font-semibold">Departments</h2>
+        </div>
 
-
-        {/* List */}
         {departments.length === 0 ? (
           <p className="text-gray-500 text-center">No departments found</p>
         ) : (
@@ -40,20 +37,30 @@ function Departments() {
                 className="bg-white p-4 rounded shadow flex justify-between items-start"
               >
                 <div>
-               <h3 className="text-lg font-medium">
-                     {dept.dept_name || dept.deptName}
-                 </h3>
+                  <h3 className="text-lg font-medium">
+                    {dept.department}
+                  </h3>
+
                   <p className="text-gray-600 text-sm">
                     {dept.description}
                   </p>
                 </div>
 
-                <button
-                  onClick={() => deleteDepartment(dept._id)}
-                  className="text-red-600 hover:text-red-700 text-sm"
-                >
-                  Delete
-                </button>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => navigate(`/department/${dept._id}`)}
+                    className="text-sm text-blue-600 hover:underline"
+                  >
+                    View
+                  </button>
+
+                  <button
+                    onClick={() => deleteDepartment(dept._id)}
+                    className="text-sm text-red-600 hover:underline"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             ))}
           </div>
